@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Row, CardPanel, Col } from 'react-materialize';
+import './Placeholder'
 
 class App extends Component {
  state = {
@@ -10,7 +11,7 @@ class App extends Component {
   clicked: [],
   score: 0,
   highScore: 0,
-  correct: null,
+  correct: undefined,
   gameWon: false
 }
 
@@ -25,7 +26,7 @@ class App extends Component {
         icons: this.state.icons.sort(this.randomize),
         clicked: clicked,
         score: score,
-        highScore: Math.max(this,state.highScore, score),
+        highScore: Math.max(this.state.highScore, score),
         correct: true,
         gameWon: score === this.state.icons.length
       })
@@ -55,7 +56,7 @@ class App extends Component {
           </div>
         <div className="container">
           <Row>
-            {this.state.icons.map(icon => <GamePiece correct={this.state.correct} key={icon.iconName} icon={icon} clickHanler={this.clickHandler />)}
+            {this.state.icons.map(icon => <Placeholder correct={this.state.correct} key={icon.iconName} icon={icon} clickHandler={this.clickHandler} />)}
           </Row>
         </div>
       </div>
