@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Row, CardPanel, Col, NavItem } from 'react-materialize';
-import Placeholder from './Placeholder';
+import Placeholder from './components/Placeholder';
+import Nav from './components/nav';
 
 class App extends Component {
  state = {
@@ -44,7 +45,7 @@ class App extends Component {
     return (
       <div>
         <div className="container-fluid">
-          <NavItem correct={this.state.correct} gameWon={this.state.gameWon} score={this.state.score} highScore={this.state.highScore} />
+          <Nav correct={this.state.correct} gameWon={this.state.gameWon} score={this.state.score} highScore={this.state.highScore} />
             <Row>
               <Col s={12}>
                 <CardPanel>
