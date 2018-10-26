@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Row, CardPanel, Col, NavItem } from 'react-materialize';
+import { Row, CardPanel, Col } from 'react-materialize';
 import Placeholder from './components/Placeholder';
+import { faSmile, faFrown, faBell, faCalendar, faEnvelope, faEnvelopeOpen, faNewspaper, faSnowflake, faBellSlash, faCompass, faEye, faFileAlt } from '@fortawesome/free-regular-svg-icons';
 import Nav from './components/nav';
 
 class App extends Component {
  state = {
   //need to add icons 
-  icons: [],
+  icons: [faSmile, faFrown, faBell, faCalendar, faEnvelope, faEnvelopeOpen, faNewspaper, faSnowflake, faBellSlash, faCompass, faEye, faFileAlt].sort(this.randomize),
   clicked: [],
   score: 0,
   highScore: 0,
@@ -20,7 +21,7 @@ class App extends Component {
   clickHandler = iconName => {
     if (this.state.clicked.indexOf(iconName) === -1) {
       let score = this.state.clicked.length +1,
-      clicked = score ===this.state.icons.length ? [] : [...this.state.clicked, iconName]
+      clicked = score === this.state.icons.length ? [] : [this.state.clicked, iconName]
 
       this.setState({
         icons: this.state.icons.sort(this.randomize),
